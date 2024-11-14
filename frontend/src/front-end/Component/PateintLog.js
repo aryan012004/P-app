@@ -43,7 +43,7 @@ function PateintLog() {
     const data = (e) => {
         e.preventDefault();
         if (validateForm()) {
-            Axios.get(`http://localhost:3000/pusers/?email=${puser.email}&password=${puser.password}`)
+            Axios.get(`https://patent-doctor-system.onrender.com/pusers/?email=${puser.email}&password=${puser.password}`)
                 .then((res) => {
                     if (res.data.length === 1) {
                         const loggedInUser = res.data[0];
