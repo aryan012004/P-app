@@ -34,7 +34,7 @@ function Reg() {
 
     // Fetch hospitals on page load
     useEffect(() => {
-        Axios.get("https://patent-doctor-system.onrender.com/hospitals")
+        Axios.get("http://localhost:3000/hospitals")
             .then((response) => {
                 setHospitals(response.data);
             })
@@ -72,13 +72,13 @@ function Reg() {
         }
 
         try {
-            const firstNameRes = await Axios.get("https://patent-doctor-system.onrender.com/users/?firstName=" + user.firstName);
+            const firstNameRes = await Axios.get("http://localhost:3000/users/?firstName=" + user.firstName);
             if (firstNameRes.data.length > 0) {
                 toast.error('First Name is already in use');
                 return false;
             }
 
-            const emailRes = await Axios.get("https://patent-doctor-system.onrender.com/users/?email=" + user.email);
+            const emailRes = await Axios.get("http://localhost:3000/users/?email=" + user.email);
             if (emailRes.data.length > 0) {
                 toast.error('Email is already in use');
                 return false;
@@ -100,7 +100,7 @@ function Reg() {
         e.preventDefault();
         const isValid = await validateUser();
         if (isValid) {
-            Axios.post("https://patent-doctor-system.onrender.com/users", user)
+            Axios.post("http://localhost:3000/users", user)
                 .then(() => {
                     toast.success('Registered Successfully');
                     
@@ -137,7 +137,7 @@ function Reg() {
             return;
         }
         
-        Axios.post("https://patent-doctor-system.onrender.com/hospitals", newHospital)
+        Axios.post("http://localhost:3000/hospitals", newHospital)
             .then((response) => {
                 setHospitals([...hospitals, response.data]);
                 setShowHospitalModal(false);

@@ -34,9 +34,9 @@ function App() {
          <Header/>
           <Routes>
                 
-                  <Route path="/" element={<SignUp/>} />
+                  <Route path="/reg" element={<SignUp/>} />
                   <Route path="/preg" element={<PatientReg/>} />
-                  <Route path="/plog" element={<PateintLog/>} />
+                  <Route path="/" element={<PateintLog/>} />
                   <Route path="/signin" element={<SignIn/>} />
                   <Route path="/home/:userId" element={<PatientDashboard/>} />
                   <Route path="/home/:userId/p" element={<Prescription/>} />

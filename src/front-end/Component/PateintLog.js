@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Icons for hide/show password
+import { Link } from "react-router-dom";
 
 function PateintLog() {
     const [puser, setUser] = useState({ email: '', password: '' });
@@ -43,7 +44,7 @@ function PateintLog() {
     const data = (e) => {
         e.preventDefault();
         if (validateForm()) {
-            Axios.get(`https://patent-doctor-system.onrender.com/pusers/?email=${puser.email}&password=${puser.password}`)
+            Axios.get(`http://localhost:3000/pusers/?email=${puser.email}&password=${puser.password}`)
                 .then((res) => {
                     if (res.data.length === 1) {
                         const loggedInUser = res.data[0];
@@ -110,7 +111,8 @@ function PateintLog() {
                             Login
                         </button>
                         <div style={styles.forgotPassword}>
-                            <a href="#" onClick={handleForgotPassword} style={styles.forgotPasswordLink}>Forgot Password?</a>
+                            <a href="#" onClick={handleForgotPassword} style={styles.forgotPasswordLink}>Forgot Password?</a><br/>
+                            <Link to='/preg' style={styles.forgotPasswordLink} >Pateint  Register</Link>
                         </div>
                     </form>
                 ) : (

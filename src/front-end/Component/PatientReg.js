@@ -63,7 +63,7 @@ function PatientReg() {
     e.preventDefault();
     const isValid = await validateUser();
     if (isValid) {
-      Axios.post("https://patent-doctor-system.onrender.com/pusers", puser)
+      Axios.post("http://localhost:3000/pusers", puser)
         .then(() => {
           toast.success('Registered Successfully');
           window.location = "/plog"; 
